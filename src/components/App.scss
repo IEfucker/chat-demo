@@ -1,0 +1,38 @@
+.App {
+    height: 100%;
+
+    &>.ant-layout {
+        height: 100%;
+    }
+
+    .ant-layout-sider {
+        &.folded {
+            width: 20px !important;
+            height: 100px;
+            max-width: none !important;
+            min-width: auto !important;
+            flex: none !important;
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: 0 10px 10px 0;
+
+            .user-list {
+                display: none;
+            }
+        }
+    }
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.nav-header {
+    background-color: bisque;
+}
+
+.main,
+.nav-header {
+    padding: 10px;
+}

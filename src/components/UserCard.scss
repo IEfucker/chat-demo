@@ -1,0 +1,38 @@
+.user-card-container {
+    margin-top: 10px;
+
+    .user-card {
+        position: relative;
+        padding: 10px;
+        color: grey;
+
+        .ant-avatar {
+            padding: 5px;
+            background-color: grey;
+        }
+
+        &.active {
+            color: white;
+
+            .ant-avatar {
+                background-color: rgb(135, 208, 104);
+            }
+
+            &:hover {
+                // background-color: #00a0e9;
+
+                .right-slot {
+                    display: block;
+                }
+            }
+        }
+
+
+        .right-slot {
+            position: absolute;
+            right: 5px;
+            top: 12px;
+            display: none;
+        }
+    }
+}

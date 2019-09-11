@@ -1,0 +1,27 @@
+.room-container {
+    height: 100%;
+    display: flex;
+
+    .panel {
+        &.right {
+            width: 200px;
+            background-color: #666;
+        }
+
+        &.left {
+            padding: 20px;
+            padding-bottom: 50px;
+            flex: 1;
+        }
+
+        .chat-input {
+            position: fixed;
+            bottom: 2px;
+            right: 215px;
+            left: 205px;
+        }
+    }
+
+
+
+}

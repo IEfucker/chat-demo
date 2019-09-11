@@ -1,0 +1,33 @@
+.message-container {
+    .user {
+        display: flex;
+        flex-direction: row;
+
+        &.isOwner {
+            flex-direction: row-reverse;
+
+            .message {
+                margin-left: 0px;
+                margin-right: 20px;
+                background-color: #1890ff;
+            }
+
+            .loading {
+                margin-left: 0px;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .message {
+        margin-left: 20px;
+        padding: 8px 15px 10px;
+        border-radius: 15px;
+        background-color: #ddd;
+    }
+
+    .loading {
+        margin-top: 15px;
+        margin-left: 10px;
+    }
+}
