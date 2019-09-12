@@ -11,7 +11,7 @@ const UserCard = ({ user, rightSlot }) => {
     <li className="user-card-container">
       <div className={cName}>
         <Avatar src={user.avatar} />
-        <span>{user.name}</span>
+        <span className="user-name">{user.name}</span>
         <div className="right-slot">{rightSlot}</div>
       </div>
     </li>
