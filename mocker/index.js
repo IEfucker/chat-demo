@@ -115,7 +115,10 @@ const chatLog = [
 ];
 
 const proxy = {
-  'GET /api/friends': (req, res) => {
+  'GET /api/v1/user': (req, res) => {
+    return res.json(friends[0]);
+  },
+  'GET /api/v1/users': (req, res) => {
     return res.json(friends);
   },
   'GET /api/rooms': (req, res) => {

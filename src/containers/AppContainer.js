@@ -4,7 +4,8 @@ import * as Actions from '../actions';
 import App from '../components/App';
 
 const mapStateToProps = state => ({
-  friends: state.friends
+  friends: state.userInfo.friends,
+  user: state.userInfo.user
 });
 
 const mapDispatchToProps = dispatch => ({

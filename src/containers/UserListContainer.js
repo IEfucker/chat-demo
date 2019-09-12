@@ -4,7 +4,7 @@ import * as Actions from '../actions';
 import UserList from '../components/UserList';
 
 const mapStateToProps = (state, props) => ({
-  users: props.users || state.friends,
+  users: props.users || state.userInfo.friends,
   title: props.title,
   rightSlot: props.rightSlot
 });

@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import friends from './friends';
+import userInfo from './userInfo';
+// import friends from './friends';
 import rooms from './rooms';
 import chatLog from './chatLog';
 
 const rootReducer = combineReducers({
-  friends,
+  userInfo,
+  // friends,
   rooms,
   chatLog
 });

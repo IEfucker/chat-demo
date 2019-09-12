@@ -1,6 +1,7 @@
 import React from 'react';
-import { Breadcrumb } from 'antd';
+import { Breadcrumb, Avatar } from 'antd';
 import { Link, withRouter } from 'react-router-dom';
+import './NavHeader.scss';
 
 const getBreadcrumbByPath = path => {
   const pathSnippets = path.split('/').filter(i => i);
@@ -22,7 +23,7 @@ const getBreadcrumbByPath = path => {
   return extraBreadcrumbItems;
 };
 const NavHeader = withRouter(props => {
-  const { location } = props;
+  const { location, user } = props;
   const extraBreadcrumbItems = getBreadcrumbByPath(location.pathname);
   const breadcrumbItems = [
     <Breadcrumb.Item key="home">
@@ -30,8 +31,14 @@ const NavHeader = withRouter(props => {
     </Breadcrumb.Item>
   ].concat(extraBreadcrumbItems);
   return (
-    <div className="breadcrumb-container">
-      <Breadcrumb separator=">">{breadcrumbItems}</Breadcrumb>
+    <div className="nav-container">
+      <div className="breadcrumb-container">
+        <Breadcrumb separator=">">{breadcrumbItems}</Breadcrumb>
+      </div>
+      <div className="user-state">
+        <Avatar src={user.avatar} />
+        <span className="user-name">{user.name}</span>
+      </div>
     </div>
   );
 });

@@ -10,17 +10,20 @@ import './App.scss';
 
 const { Content, Header, Sider } = Layout;
 
-const App = withRouter(({ friends, actions }) => {
+const App = withRouter(({ friends, user, actions }) => {
   const sideBarCName = '';
   // if (location.pathname !== '/') {
   //   sideBarCName += ' folded';
   // }
   useEffect(() => {
-    actions.getFriends().then(() => {});
+    actions.login().then(() => {});
   }, [actions]);
   useEffect(() => {
-    actions.getRooms().then(() => {});
+    actions.getFriends().then(() => {});
   }, [actions]);
+  // useEffect(() => {
+  //   actions.getRooms().then(() => {});
+  // }, [actions]);
 
   if (!friends || !friends.length) {
     return null;
@@ -40,7 +43,7 @@ const App = withRouter(({ friends, actions }) => {
         </Sider>
         <Layout>
           <Header className="nav-header">
-            <NavHeader />
+            <NavHeader user={user} />
           </Header>
           <Content className="main">
             <Switch>

@@ -12,13 +12,29 @@ export const getFriends = () => {
   return dispatch => {
     dispatch(requestFriends());
     return axios
-      .get(`${apiHost}/api/friends`)
+      .get(`${apiHost}/api/v1/users`)
       .then(
         res => res.data,
         // eslint-disable-next-line
         error => console.log('An error occurred.', error)
       )
       .then(data => dispatch(receiveFriends(data)));
+  };
+};
+export const loginStart = () => ({ type: types.LOGIN });
+export const loginDone = data => ({ type: types.LOGIN_DONE, data });
+// 模拟登陆，返回一个随机用户
+export const login = () => {
+  return dispatch => {
+    dispatch(loginStart());
+    return axios
+      .get(`${apiHost}/api/v1/user`)
+      .then(
+        res => res.data,
+        // eslint-disable-next-line
+        error => console.log('An error occurred.', error)
+      )
+      .then(data => dispatch(loginDone(data)));
   };
 };
 export const requestRooms = () => ({ type: types.REQUEST_ROOMS });

@@ -1,6 +1,7 @@
 // export const GET_FRIENDS = 'get_friends';
 // export const GET_ROOMS = 'get_rooms';
-// export const GET_CHAT_LOG = 'get_chat_log';
+export const LOGIN = 'login';
+export const LOGIN_DONE = 'login_done';
 export const REQUEST_FRIENDS = 'request_friends';
 export const RECEIVE_FRIENDS = 'receive_friends';
 export const REQUEST_ROOMS = 'request_rooms';

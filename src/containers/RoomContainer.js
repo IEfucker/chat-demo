@@ -4,7 +4,7 @@ import * as Actions from '../actions';
 import Room from '../components/Room';
 
 const mapStateToProps = state => ({
-  friends: state.friends,
+  friends: state.userInfo.friends,
   chatLog: state.chatLog,
   rooms: state.rooms
 });

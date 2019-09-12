@@ -4,7 +4,7 @@ import * as Actions from '../actions';
 import Hall from '../components/Hall';
 
 const mapStateToProps = state => ({
-  friends: state.friends,
+  friends: state.userInfo.friends,
   rooms: state.rooms
 });
 
