@@ -1,5 +1,5 @@
 import React from 'react';
-import { Breadcrumb, Avatar } from 'antd';
+import { Breadcrumb, Avatar, Button } from 'antd';
 import { Link, withRouter } from 'react-router-dom';
 import './NavHeader.scss';
 
@@ -10,7 +10,7 @@ const getBreadcrumbByPath = path => {
     let name = '';
     if (_ === 'room') return null;
     if (index > 0 && pathSnippets[index - 1] === 'room') {
-      name = `room${_}`;
+      name = `room: ${_}`;
     }
     // 其他path不处理
 
@@ -23,18 +23,32 @@ const getBreadcrumbByPath = path => {
   return extraBreadcrumbItems;
 };
 const NavHeader = withRouter(props => {
-  const { location, user } = props;
+  const { location, user, exitRoom } = props;
   const extraBreadcrumbItems = getBreadcrumbByPath(location.pathname);
   const breadcrumbItems = [
     <Breadcrumb.Item key="home">
       <Link to="/">Home</Link>
     </Breadcrumb.Item>
   ].concat(extraBreadcrumbItems);
+
+  const handleExit = () => {
+    exitRoom(user);
+  };
   return (
     <div className="nav-container">
       <div className="breadcrumb-container">
         <Breadcrumb separator=">">{breadcrumbItems}</Breadcrumb>
       </div>
+      {user.inRoom ? (
+        <div className="exit-room">
+          <Button type="primary" size="small" onClick={handleExit}>
+            退出房间
+          </Button>
+        </div>
+      ) : (
+        ''
+      )}
+
       <div className="user-state">
         <Avatar src={user.avatar} />
         <span className="user-name">{user.name}</span>

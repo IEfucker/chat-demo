@@ -5,9 +5,10 @@ import './RoomCard.scss';
 
 const { Meta } = Card;
 
-const RoomCard = withRouter(({ room, owner, history }) => {
+const RoomCard = withRouter(({ user, room, owner, actions }) => {
   function enterRoom(roomId) {
-    history.push(`/room/${roomId}`);
+    // history.push(`/room/${roomId}`);
+    actions.joinInRoom(roomId, user.id);
   }
   return (
     <div className="room-card-container">
@@ -27,7 +28,7 @@ const RoomCard = withRouter(({ room, owner, history }) => {
             <Icon
               type="enter"
               onClick={() => {
-                enterRoom(room.id);
+                enterRoom(room.roomId);
               }}
             />
           ]}
@@ -40,7 +41,7 @@ const RoomCard = withRouter(({ room, owner, history }) => {
                 <span className="room-owner">房主：{owner.name}</span>
                 <span className="room-number">房间号：{room.NO}</span>
                 <span className="room-member-count">
-                  当前人数：{room.members.length}
+                  当前人数：{room.users.length}
                 </span>
               </div>
             }

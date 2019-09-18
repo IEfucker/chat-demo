@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 import { Button, Layout } from 'antd';
 import UserListContainer from '../containers/UserListContainer';
 import NavHeader from './NavHeader';
@@ -16,14 +16,12 @@ const App = withRouter(({ friends, user, actions }) => {
   //   sideBarCName += ' folded';
   // }
   useEffect(() => {
-    actions.login().then(() => {});
+    actions.login().then(res => {
+      actions.getFriends().then(() => {
+        actions.connectSocket(res.data.id);
+      });
+    });
   }, [actions]);
-  useEffect(() => {
-    actions.getFriends().then(() => {});
-  }, [actions]);
-  // useEffect(() => {
-  //   actions.getRooms().then(() => {});
-  // }, [actions]);
 
   if (!friends || !friends.length) {
     return null;
@@ -43,12 +41,29 @@ const App = withRouter(({ friends, user, actions }) => {
         </Sider>
         <Layout>
           <Header className="nav-header">
-            <NavHeader user={user} />
+            <NavHeader user={user} exitRoom={actions.leaveRoom} />
           </Header>
           <Content className="main">
             <Switch>
-              <Route exact path="/" component={HallContainer} />
-              <Route path="/room/:id" component={RoomContainer} />
+              <Route
+                exact
+                path="/"
+                component={() =>
+                  // 处于某一房间，就不允许访问大厅
+                  user.inRoom ? (
+                    <Redirect to={`/room/${user.inRoom}`} />
+                  ) : (
+                    <HallContainer />
+                  )
+                }
+              />
+              <Route
+                path="/room/:id"
+                component={() =>
+                  // 处于某一房间，就不允许访问大厅
+                  user.inRoom ? <RoomContainer /> : <Redirect to="/" />
+                }
+              />
               <Route component={NoMatch} />
             </Switch>
           </Content>

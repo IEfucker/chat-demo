@@ -1,12 +1,14 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
-import Hall from '../components/Hall';
+import RoomCard from '../components/RoomCard';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, props) => ({
   friends: state.userInfo.friends,
   user: state.userInfo.user,
-  rooms: state.rooms
+  rooms: state.rooms,
+  room: props.room,
+  owner: props.owner
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -16,4 +18,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Hall);
+)(RoomCard);

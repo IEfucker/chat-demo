@@ -18,6 +18,16 @@ export default function chatLog(state = initialState, action) {
     }
     case types.CLEAN_CHAT_LOG:
       return [];
+    case types.ON_MESSAGE: {
+      return [...state, action.data];
+    }
+    case types.MESSAGE_SENDED: {
+      const { id } = action.data;
+      return state.map(m => {
+        if (m.id === id) return { ...m, isSending: false };
+        return m;
+      });
+    }
 
     default:
       return state;

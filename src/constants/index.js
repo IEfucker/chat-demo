@@ -2,6 +2,12 @@
 // export const GET_ROOMS = 'get_rooms';
 export const LOGIN = 'login';
 export const LOGIN_DONE = 'login_done';
+export const CONNECT_SOCKET_START = 'connect_socket_start';
+export const CONNECT_SOCKET_DONE = 'connect_socket_done';
+export const CREATE_ROOM_START = 'create_room_start';
+export const CREATE_ROOM_DONE = 'create_room_done';
+export const ONLINE = 'online';
+export const OFFLINE = 'offline';
 export const REQUEST_FRIENDS = 'request_friends';
 export const RECEIVE_FRIENDS = 'receive_friends';
 export const REQUEST_ROOMS = 'request_rooms';
@@ -10,4 +16,9 @@ export const REQUEST_CHAT_LOG = 'request_chat_log';
 export const RECEIVE_CHAT_LOG = 'receive_chat_log';
 export const SEND_MESSAGE = 'send_message';
 export const SEND_MESSAGE_DONE = 'send_message_done';
+export const ON_MESSAGE = 'on_message';
+export const MESSAGE_SENDED = 'message_sended';
+export const JOIN_ROOM_DONE = 'join_room_done';
+export const LEAVE_ROOM_DONE = 'leave_room_done';
+
 export const CLEAN_CHAT_LOG = 'clean_chat_log';

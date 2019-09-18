@@ -1,5 +1,18 @@
 .hall-container {
+    height: 100%;
+
     .hall {
+        height: 100%;
         display: flex;
+
+        &.no-room {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .center {
+            text-align: center;
+
+        }
     }
 }

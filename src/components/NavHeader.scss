@@ -1,6 +1,11 @@
 .nav-container {
     position: relative;
 
+    .exit-room {
+        height: 30px;
+        line-height: 30px;
+    }
+
     .user-state {
         position: absolute;
         top: 0;
